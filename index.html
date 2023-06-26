@@ -18,25 +18,27 @@
     <button type="submit">Submit</button>
   </form>
 
-  <h2>Leaderboard</h2>
-  <table id="leaderboard">
-    <tr>
-      <th>User</th>
-      <th>Total Points</th>
-    </tr>
-    <tr id="user1-row">
-      <td>User 1</td>
-      <td id="user1-points">0</td>
-    </tr>
-    <tr id="user2-row">
-      <td>User 2</td>
-      <td id="user2-points">0</td>
-    </tr>
-    <tr id="user3-row">
-      <td>User 3</td>
-      <td id="user3-points">0</td>
-    </tr>
-  </table>
+  <div id="leaderboard">
+    <h2>Leaderboard</h2>
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Total Points</th>
+      </tr>
+      <tr id="user1-row">
+        <td>User 1</td>
+        <td id="user1-points">0</td>
+      </tr>
+      <tr id="user2-row">
+        <td>User 2</td>
+        <td id="user2-points">0</td>
+      </tr>
+      <tr id="user3-row">
+        <td>User 3</td>
+        <td id="user3-points">0</td>
+      </tr>
+    </table>
+  </div>
 
   <script>
     document.getElementById("points-form").addEventListener("submit", function(event) {

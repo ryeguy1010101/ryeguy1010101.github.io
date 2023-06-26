@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Points Metrics Form</title>
+  <title>Point-Based Competition</title>
 </head>
 <body>
-  <h2>Points Metrics Input</h2>
+  <h2>Point-Based Competition</h2>
   <form id="points-form">
     <label for="user1">User 1 Points:</label>
     <input type="number" id="user1" name="user1"><br>
@@ -18,8 +18,25 @@
     <button type="submit">Submit</button>
   </form>
 
-  <h2>Running Totals</h2>
-  <div id="totals"></div>
+  <h2>Leaderboard</h2>
+  <table id="leaderboard">
+    <tr>
+      <th>User</th>
+      <th>Total Points</th>
+    </tr>
+    <tr id="user1-row">
+      <td>User 1</td>
+      <td id="user1-points">0</td>
+    </tr>
+    <tr id="user2-row">
+      <td>User 2</td>
+      <td id="user2-points">0</td>
+    </tr>
+    <tr id="user3-row">
+      <td>User 3</td>
+      <td id="user3-points">0</td>
+    </tr>
+  </table>
 
   <script>
     document.getElementById("points-form").addEventListener("submit", function(event) {
@@ -29,26 +46,9 @@
       var user2Points = parseInt(document.getElementById("user2").value) || 0;
       var user3Points = parseInt(document.getElementById("user3").value) || 0;
 
-      console.log("User 1 Points: " + user1Points);
-      console.log("User 2 Points: " + user2Points);
-      console.log("User 3 Points: " + user3Points);
-
-      var totalsDiv = document.getElementById("totals");
-
-      var user1Total = parseInt(totalsDiv.getAttribute("data-user1-total")) || 0;
-      user1Total += user1Points;
-      totalsDiv.setAttribute("data-user1-total", user1Total);
-      totalsDiv.innerHTML = "User 1 Total Points: " + user1Total + "<br>";
-
-      var user2Total = parseInt(totalsDiv.getAttribute("data-user2-total")) || 0;
-      user2Total += user2Points;
-      totalsDiv.setAttribute("data-user2-total", user2Total);
-      totalsDiv.innerHTML += "User 2 Total Points: " + user2Total + "<br>";
-
-      var user3Total = parseInt(totalsDiv.getAttribute("data-user3-total")) || 0;
-      user3Total += user3Points;
-      totalsDiv.setAttribute("data-user3-total", user3Total);
-      totalsDiv.innerHTML += "User 3 Total Points: " + user3Total + "<br>";
+      document.getElementById("user1-points").textContent = user1Points;
+      document.getElementById("user2-points").textContent = user2Points;
+      document.getElementById("user3-points").textContent = user3Points;
 
       document.getElementById("points-form").reset();
     });
